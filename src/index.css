@@ -1,0 +1,103 @@
+@import "tailwindcss";
+
+@theme {
+  --font-display: "Outfit", system-ui, -apple-system, sans-serif;
+  --font-sans: "Plus Jakarta Sans", system-ui, -apple-system, sans-serif;
+  --font-mono: "JetBrains Mono", monospace;
+
+  --color-brand-primary: #0f172a;
+  --color-brand-slate: #1e293b;
+  --color-brand-accent: #2563eb;
+  --color-brand-light: #38bdf8;
+  --color-brand-warm: #f8fafc;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+:root {
+  font-family: "Plus Jakarta Sans", system-ui, sans-serif;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+h1, h2, h3, .font-display {
+  font-family: "Outfit", sans-serif;
+}
+
+body {
+  background-color: #f8fafc;
+  color: #0f172a;
+  min-height: 100vh;
+  margin: 0;
+}
+
+/* ── Custom Subtle Scrollbar ── */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+::-webkit-scrollbar-thumb {
+  background: #cbd5e1;
+  border-radius: 9999px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #94a3b8;
+}
+
+/* ── Seat Map Horizontal Scroll ── */
+.seat-map-scroll {
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+}
+
+/* ── Seat interaction ── */
+.seat-bms {
+  position: relative;
+  transition: all 0.15s cubic-bezier(0.4, 0, 0.2, 1);
+  cursor: pointer;
+}
+.seat-bms:not([disabled]):hover {
+  transform: translateY(-2px) scale(1.08);
+}
+.seat-bms[disabled] {
+  cursor: not-allowed;
+}
+
+/* ── MakeMyTrip Style Dark Gradient (with natural slate-navy depth) ── */
+.mmt-hero-gradient {
+  background: radial-gradient(circle at 50% 0%, #1e293b 0%, #0f172a 55%, #020617 100%);
+}
+
+/* ── Natural Deep Slate Header Gradient for Stepper ── */
+.stepper-header-gradient {
+  background: linear-gradient(180deg, #0f172a 0%, #1e293b 100%);
+}
+
+/* ── Scroll Down Indicator Animation ── */
+@keyframes scrollBounce {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(6px);
+  }
+}
+
+.scroll-indicator-bounce {
+  animation: scrollBounce 1.8s ease-in-out infinite;
+}
+
+/* ── Clean Card Lift ── */
+.card-hover {
+  transition: transform 0.2s cubic-bezier(0.4, 0, 0.2, 1), box-shadow 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+}
+.card-hover:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 12px 24px -6px rgba(15, 23, 42, 0.08);
+}
